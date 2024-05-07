@@ -1,0 +1,42 @@
+# ~/.bashrc
+#
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+set -o vi
+
+export PATH=/usr/local/pgsql/bin:/usr/local/bin/dbt:$PATH
+
+export LD_LIBRARY_PATH=/usr/local/pgsql/lib
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# aliases for wayland
+alias slack='nohup chromium --app="https://marketingmilk.slack.com" --ozone_platform_hint=wayland --disable-features=WaylandFractionalScaleV1 > /dev/null 2>&1 & disown'
+# alias discor='nohup chromium --app="https://discord.com" > /dev/null 2>&1 & disown'
+alias dbeaver='nohup dbeaver > /dev/null 2>&1 &'
+alias musb='sudo mount -o gid=users,fmask=113,dmask=002 /dev/sda1 /mnt/usbstick'
+alias vim=nvim
+alias ssc='~/scripts/switch_sway_config.sh'
+alias ff='nohup firefox > /dev/null 2>&1 &'
+alias dbte='~/scripts/dbtexport.sh'
+alias killp='~/scripts/kill_process.sh'
+alias mkdir='function _mkchown() { sudo mkdir -p "$1" && sudo chown -R $(whoami): "$1"; }; _mkchown'
+alias touch='function _touchchown() { sudo touch "$1" && sudo chown -R $(whoami): "$1"; }; _touchchown'
+alias killsway='pkill -15 sway'
+alias cdm='cd ~/drive/dashboard-laravel'
+alias cds='cd ~/drive/dsm-salesforce'
+alias cdd='cd ~/drive/dbt-digest'
+alias cdm2='cd ~/drive/marketing-milk'
+alias cdfe='cd ~/drive/marketing-milk/apps/frontend'
+alias cdbe='cd ~/drive/marketing-milk/apps/backend'
+alias cda='cd ~/drive/marketing-milk/apps'
+alias test='echo test'
+
+export NPM_TOKEN=
+export DB_CI_USER=
+export DB_CI_PASSWORD=!
+export DB_CI_SCHEMA=
+export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
