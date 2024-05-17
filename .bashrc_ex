@@ -40,3 +40,7 @@ export DB_CI_USER=
 export DB_CI_PASSWORD=
 export DB_CI_SCHEMA=
 export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
+
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+

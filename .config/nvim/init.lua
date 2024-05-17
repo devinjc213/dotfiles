@@ -34,7 +34,7 @@ plugins = {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   },
-  'nvim-treesitter/nvim-treesitter-context',
+  -- 'nvim-treesitter/nvim-treesitter-context',
   'daschw/leaf.nvim',
   {
     'razak17/tailwind-fold.nvim',
@@ -67,13 +67,36 @@ plugins = {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "antoinemadec/FixCursorHold.nvim",
+      -- "antoinemadec/FixCursorHold.nvim",
       "haydenmeade/neotest-jest",
     },
   },
   'haydenmeade/neotest-jest',
   'devinjc213/sfdeez.nvim',
   'ThePrimeagen/harpoon',
+  {
+    'kristijanhusak/vim-dadbod-ui',
+    dependencies = {
+      { 'tpope/vim-dadbod', lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+    }
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    lazy = false,
+    priority = 100,
+    dependencies = {
+      "onsails/lspkind.nvim",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-buffer",
+      { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+      "saadparwaiz1/cmp_luasnip",
+    },
+    config = function()
+      require "core.plugins.completions"
+    end,
+  },
 }
 
 opts = {}
